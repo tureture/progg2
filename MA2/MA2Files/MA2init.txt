@@ -3,3 +3,23 @@
 1+2           # Should be 3
 3*4           # Should be 12
 1 + 2*(3+2)   # Should be 11
+5 - 2         # Should be 3
+8/2 +1        # Should be 5
+1+2-3+4       # SHould be 4
+PI + 2
+log(3*2+PI)
+sum(1,2,(1+PI))
+mean(   5,15,   10)
+3 = b
+PI*E
+5 = c = d
+fib(100) = a = b
+-(-2-3)
+fib(3)
+fib(3+2)
+exp(2=x=abc)
+7-2*3 = hej123
+exp(7-2*3= hej321)
+fac(5)
+sum(1)
+aa

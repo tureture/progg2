@@ -2,8 +2,8 @@
 Solutions to module 1
 Student: Ture Hassler
 Mail: ture.hassler@gmail.com
-Reviewed by:
-Reviewed date:
+Reviewed by: Alicia Robertsson
+Reviewed date: 30 Mars 2022
 """
 
 import random
@@ -14,8 +14,9 @@ from MA1_examples import fib
 def power(x, n):  # Optional
     pass
 
-# Multiplcerar med rekursiv addition, kräver heltal > 0
+
 def multiply(m, n):  # Compulsory
+    """ Tar in två heltal m, n och returnerar m*n. Beräknat med rekursiv addition"""
     if n == 0:
         return 0
     elif n == 1:
@@ -27,8 +28,9 @@ def multiply(m, n):  # Compulsory
 def divide(t, n):  # Optional
     pass
 
-# Beräknar harmoniska serien
+
 def harmonic(n):  # Compulsory
+    """ Tar ett heltal n som input. Returnerar summan av de n första termerna i harmoniska serien """
     if n == 1:
         return n
     else:
@@ -48,6 +50,10 @@ def reverse(s):  # Optional
 
 # Hittar största elementet i en lista rekursivt
 def largest(a):  # Compulsory
+    """
+    Tar en lista a med jämförbara element (t.ex char, double), returnerar det största värdet i listan.
+    Beräknat rekursivt
+    """
     if len(a) <= 1:
         return a[0]
     else:
@@ -60,33 +66,23 @@ def largest(a):  # Compulsory
 # Räknar antalet förekomster av x, hanterar nestlade listor ifall x ej är en lista
 # Basfall då längden av s=1. Extra if else hanterar fallet då x är en lista
 def count(x, s):  # Compulsory
-    if len(s) <= 1:
-        if type(x) == list:
-            if x == s[0]:
-                return 1
-            else:
-                return 0
-        elif type(s[0]) == list:
-            return count(x, s[0])
-        elif x == s[0]:
-            return 1
-        else:
-            return 0
+    """
+    Tar en lista s och ett objekt x som input. Returnerar antalet förekomster av x i listan s.
+    Inklusive förekomster i nestlade listor.
+    """
+    if len(s) == 0:
+        return 0
+    elif x == s[0]:
+        return 1 + count(x, s[1:])
+    elif type(s[0]) == list:
+        return count(x, s[0]) + count(x, s[1:])
     else:
-        if type(x) == list:
-            if x == s[0]:
-                return 1 + count(x, s[1:])
-            else:
-                return count(x, s[1:])
-        elif type(s[0]) == list:
-            return count(x, s[0]) + count(x, s[1:])
-        elif x == s[0]:
-            return 1 + count(x, s[1:])
-        else:
-            return count(x, s[1:])
+        return count(x, s[1:])
+
 
 # Slår ihop två listor rekursivt
 def zippa(l1, l2):  # Compulsory
+    """ Tar två listor l1, l2 som input. Returnerar en kombinerad lista med ordningen vartannat element """
     if len(l1) <= 1:
         return l1 + l2
     elif len(l2) <= 1:
@@ -96,27 +92,30 @@ def zippa(l1, l2):  # Compulsory
 
 # Löser Towers of Hanoi rekursivt
 def bricklek(f, t, h, n):  # Compulsory
-    if n == 1:
-        return [f + '->' + t]
+    """ Löser Towers of Hanoi rekursivt. Flyttar tornet från plats f till t.
+    Input tar namnet på de tre platserna, f, t, h och antalet brickor i tornet n.
+    Returnerar en lista med instruktioner över de flyttar som krävs """
+    if n == 0:
+        return []
     else:
         return bricklek(f, h, t, n - 1) + [f + '->' + t] + bricklek(h, t, f, n-1)
 
 
 def main():
     """ Demonstates my implementations """
-    print(multiply(5, 5))
-    print(harmonic(3))
-    print(largest([1, 3, 4, 6, 2, 4, 2, 3]))
-    print(count(4, [1, [4, 4], 3, 1, 4, 2, ['a', [[4, 4], 4, 4]]]))
-    print('')
-    print(zippa([1, 3, 5], [2, 4, 6, 8, 10]))
-    print(bricklek('f', 't', 'h', 3))
-    print('Bye!')
+    #print(multiply(5, 5))
+    #print(harmonic(3))
+    #print(largest([1, 3, 4, 6, 2, 4, 2, 3]))
+    #print(count(4, [1, [4, 4], 3, 1, 4, 2, ['a', [[4, 4], 4, 4]]]))
+    #print('')
+    #print(zippa([1, 3, 5], [2, 4, 6, 8, 10]))
+    print(bricklek('V', 'H', 'M', 7))
+    # print('Bye!')
 
-    tstart = time.perf_counter()
-    fib(31)
-    tstop = time.perf_counter()
-    print(f"Measured time: {tstop - tstart} seconds")
+    # tstart = time.perf_counter()
+    # fib(31)
+    # tstop = time.perf_counter()
+    # print(f"Measured time: {tstop - tstart} seconds")
 
 
 if __name__ == "__main__":
@@ -135,9 +134,6 @@ if __name__ == "__main__":
   2^50 steg == ca 10^15s = ca 30 miljoner år?
   
   
-  
-  
-  
   Exercise 17: Time for Fibonacci:
   A.
   Om den skalar som 1.618^n bör 5 till punkter leda till ca en faktor 11 hos tiden
@@ -146,6 +142,7 @@ if __name__ == "__main__":
   fib(42) = 157s 
   Vilket ger en faktor 10.8 och 11.1, vilket om vi tar 5:e roten ur ger oss tillväxt 
   med ca 1.61832. Stämmer bra!
+  Går även att beräkna konstanten c för t(n) = c * 1.618^n för min dator men bör ge samma resultat!
   
   B. 
   Jag utgår från att fib(31) = 0.93 == ca 1s
@@ -169,16 +166,5 @@ if __name__ == "__main__":
   --> n = e^1/c = e^23 --> n = ca 9.7 * 10^9
   A är snabbare för n > 10^10
   
-  
-  
-  
-  
-  
-  
-  
-
-
-
-
 
 """
