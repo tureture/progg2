@@ -9,7 +9,8 @@ import unittest
 from linked_list import *
 
 class Test(unittest.TestCase):
-    
+
+
     def test_length(self):
         lst = LinkedList()
         self.assertEqual(lst.length(), 0)
@@ -34,6 +35,7 @@ class Test(unittest.TestCase):
         self.assertEqual(lst.remove_last(), 2)
         self.assertEqual(lst.remove_last(), 1)
         #self.assertEqual(lst.length(), 0)
+
         
     def test_remove(self):
         lst = LinkedList()
@@ -48,7 +50,7 @@ class Test(unittest.TestCase):
         self.assertEqual(lst.remove(2), True)
         self.assertEqual(lst.remove(2), False)
         
-        
+
     def test_count(self):
         lst = LinkedList()
         for x in [1, 1, 2, 6, 6]:
@@ -58,7 +60,7 @@ class Test(unittest.TestCase):
         self.assertEqual(lst.count(3), 0)
         self.assertEqual(lst.count(6), 2)
         self.assertEqual(lst.count(7), 0)
-    
+
     def test_to_list(self):
         lst = LinkedList()
         self.assertEqual(lst.to_list(), [])
