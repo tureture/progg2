@@ -9,40 +9,34 @@ Voluntary Assignment Progg2
 Av Ture Hassler, Maj 13 2022
 '''
 
-size = 400
-nr_balls = 16
-tic_rate = 5
 
+size = 400  # Storlek på fönstret
+
+# Skapar window och canvas (utökat canvas object)
 window = create_window(size)
-canvas = create_canvas(window, size)
-balls = create_balls(size, nr_balls, canvas)
-user_ball = create_user_ball(size, canvas)
-balls.append(user_ball)
+canvas = Canvas(window, size)
 
-button = tk.Button(window, text='Delete ball', command=lambda: remove_ball(balls, canvas))
-button.pack()
+# Skapar knappar
+button_start = tk.Button(window, text='Start', command=lambda: canvas.start(entry_speed=entry_speed, entry_balls=entry_balls))
+button_start.pack()
 
-button2 = tk.Button(window, text='Start', command=lambda: remove_ball(balls, canvas))
-button2.pack()
+button_quit = tk.Button(window, text='Quit', command=window.destroy)
+button_quit.pack()
 
-button3 = tk.Button(window, text='Stop', command=lambda: remove_ball(balls, canvas))
-button3.pack()
-
-#fixa textruta, oklart om funkar
-entry1 = tk.Entry(window)
-entry1.pack()
+# Skapar input-rutor
+string_var = tk.StringVar(window, '2')
+entry_speed = tk.Entry(window, textvariable=string_var, width=40)
+frame_speed = tk.Label(window, text='Game speed (between 1-10)', width=40)
 
 
+string_var_2 = tk.StringVar(window, '9')
+entry_balls = tk.Entry(window, textvariable=string_var_2, width=40)
+frame_balls = tk.Label(window, text='Nr Balls', width=40)
 
+frame_speed.pack()
+entry_speed.pack()
+frame_balls.pack()
+entry_balls.pack()
 
-
-
-
-window.bind('<KeyPress-Right>', lambda event, arg=user_ball: speed_right(event, arg))
-window.bind('<KeyPress-Down>', lambda event, arg=user_ball: speed_down(event, arg))
-window.bind('<KeyPress-Up>', lambda event, arg=user_ball: speed_up(event, arg))
-window.bind('<KeyPress-Left>', lambda event, arg=user_ball: speed_left(event, arg))
-canvas.after(1, lambda: move(balls, canvas, size, tic_rate))
-
-
+# Mainloop
 window.mainloop()

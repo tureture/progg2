@@ -3,7 +3,7 @@ import numpy as np
 
 
 class Ball:
-    def __init__(self, pos, vel, rad, canvas, type, outline='#000', dash=1, remove_others=False):
+    def __init__(self, pos, vel, rad, canvas, type, outline='#000', dash=1):
 
         self.vel = np.array(vel, dtype=np.float)
         self.canvas = canvas
