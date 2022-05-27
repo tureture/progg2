@@ -29,17 +29,17 @@ def main():
 
 	n = 20
 	start = pc()
-	fib_py(n)
+	print(fib_py(n))
 	end = pc()
 	print(f"fib_py took {round(end - start, 2)} seconds")
 
 	start = pc()
-	fib_numba(n)
+	print(fib_numba(n))
 	end = pc()
 	print(f"fib_numba took {round(end - start, 2)} seconds")
 
 	start = pc()
-	f.fibc(n)
+	print(f.fibc(n))
 	end = pc()
 	print(f"fibc took {round(end - start, 2)} seconds")
 
