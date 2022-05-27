@@ -44,9 +44,9 @@ def main():
 		end = pc()
 		y_c.append(end - start)
 
-	plt.plot(x, y_py)
-	plt.plot(x, y_numba)
-	plt.plot(x, y_c)
+	plt.plot(x, y_py, label='Python')
+	plt.plot(x, y_numba, label='Numba')
+	plt.plot(x, y_c, label='C++')
 	plt.savefig('plot_MA42.png')
 
 if __name__ == '__main__':
