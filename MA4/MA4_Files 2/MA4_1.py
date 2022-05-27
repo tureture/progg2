@@ -100,12 +100,12 @@ def _parallell_n_sphere(inp):
 
 
 start = pc()
-monte_carlo_n_sphere(1000000, 11)
+monte_carlo_n_sphere(10000, 11)
 end = pc()
 print(f"Process took {round(end - start, 2)} seconds")
 
 start = pc()
-paralell_n_sphere(1000000, 11, 10)
+paralell_n_sphere(10000, 11, 10)
 end = pc()
 print(f"Process took {round(end - start, 2)} seconds")
 
