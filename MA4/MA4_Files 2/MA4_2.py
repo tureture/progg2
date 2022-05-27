@@ -27,16 +27,23 @@ def main():
 	print(f.get())
 	print(f.fibc(5))
 
-	n = 10
+	n = 20
 	start = pc()
 	fib_py(n)
 	end = pc()
-	print(f"Process took {round(end - start, 2)} seconds")
+	print(f"fib_py took {round(end - start, 2)} seconds")
 
 	start = pc()
 	fib_numba(n)
 	end = pc()
-	print(f"Process took {round(end - start, 2)} seconds")
+	print(f"fib_numba took {round(end - start, 2)} seconds")
+
+	start = pc()
+	f.fibc(n)
+	end = pc()
+	print(f"fibc took {round(end - start, 2)} seconds")
+
+
 
 
 if __name__ == '__main__':
