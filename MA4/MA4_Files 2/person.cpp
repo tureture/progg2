@@ -12,7 +12,7 @@ class Person{
 	};
  
 Person::Person(int n){
-	age = n;
+	age = n*3;
 	}
  
 int Person::get(){
