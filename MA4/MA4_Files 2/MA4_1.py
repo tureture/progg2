@@ -109,6 +109,7 @@ paralell_n_sphere(10000, 11, 10)
 end = pc()
 print(f"Process took {round(end - start, 2)} seconds")
 
+
 '''
 (n, d) = (10000000, 11)
 Normal

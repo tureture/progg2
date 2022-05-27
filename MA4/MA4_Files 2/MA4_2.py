@@ -21,30 +21,33 @@ def main():
 			return fib_numba(n - 1) + fib_numba(n - 2)
 
 
+
+	x = range(30, 45)
+	y_py = []
+	y_numba = []
+	y_c = []
 	f = Person(5)
-	print(f.get())
-	f.set(7)
-	print(f.get())
-	print(f.fibc(5))
 
-	n = 20
-	start = pc()
-	print(fib_py(n))
-	end = pc()
-	print(f"fib_py took {round(end - start, 2)} seconds")
+	for n in x:
+		start = pc()
+		fib_py(n)
+		end = pc()
+		y_py.append(end-start)
 
-	start = pc()
-	print(fib_numba(n))
-	end = pc()
-	print(f"fib_numba took {round(end - start, 2)} seconds")
+		start = pc()
+		fib_numba(n)
+		end = pc()
+		y_numba.append(end - start)
 
-	start = pc()
-	print(f.fibc(n))
-	end = pc()
-	print(f"fibc took {round(end - start, 2)} seconds")
+		start = pc()
+		f.fibc(n)
+		end = pc()
+		y_c.append(end - start)
 
-
-
+	plt.plot(x, y_py)
+	plt.plot(x, y_numba)
+	plt.plot(x, y_c)
+	plt.savefig('plot_MA42.png')
 
 if __name__ == '__main__':
 	main()
