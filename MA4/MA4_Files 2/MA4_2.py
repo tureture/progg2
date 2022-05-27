@@ -29,20 +29,24 @@ def main():
 	f = Person(5)
 
 	for n in x:
+		print('N: ', n)
 		start = pc()
 		fib_py(n)
 		end = pc()
 		y_py.append(end-start)
+		print('fib_py: ', end-start)
 
 		start = pc()
 		fib_numba(n)
 		end = pc()
 		y_numba.append(end - start)
+		print('fib_numba: ', end-start)
 
 		start = pc()
 		f.fibc(n)
 		end = pc()
 		y_c.append(end - start)
+		print('fibc: ,', end-start)
 
 	plt.plot(x, y_py, label='Python')
 	plt.plot(x, y_numba, label='Numba')
@@ -51,3 +55,4 @@ def main():
 
 if __name__ == '__main__':
 	main()
+
