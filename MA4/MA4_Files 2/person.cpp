@@ -5,29 +5,34 @@ class Person{
 	public:
 		Person(int);
 		int get();
-		int fibc(int);
+		int fib();
 		void set(int);
 	private:
-		int age;
+		int n;
+		int _fib(int);
 	};
  
-Person::Person(int n){
-	age = n*3;
+Person::Person(int in){
+	n = in;
 	}
  
 int Person::get(){
-	return age;
+	return n;
 	}
  
-void Person::set(int n){
-	age = n;
+void Person::set(int in){
+	n = in;
 	}
 
-int Person::fibc(int n){
-	if (n <= 1){
+int Person::fib(){
+	return _fib(n);
+}
+
+int Person::_fib(int in){
+	if (in <= 1){
 		return 0;
 	} else {
-		return fibc(n-1) + fibc(n-2);
+		return _fib(in-1) + _fib(in-2);
 	}
 }
 
@@ -36,7 +41,7 @@ int Person::fibc(int n){
 extern "C"{
 	Person* Person_new(int n) {return new Person(n);}
 	int Person_get(Person* person) {return person->get();}
-	int Person_fibc(Person* person, int n) {return person->fibc(n);}
+	int Person_fib(Person* person) {return person->fib();}
 	void Person_set(Person* person, int n) {person->set(n);}
 	void Person_delete(Person* person){
 		if (person){

@@ -22,12 +22,14 @@ def main():
 
 
 
-	x = range(30, 45)
+	x = range(30, 40)
 	y_py = []
 	y_numba = []
 	y_c = []
 	f = Person(5)
+	f.fib()
 
+	'''
 	for n in x:
 		print('N: ', n)
 		start = pc()
@@ -43,15 +45,30 @@ def main():
 		print('fib_numba: ', end-start)
 
 		start = pc()
-		f.fibc(n)
+		f = Person(n)
+		f.fib()
 		end = pc()
 		y_c.append(end - start)
-		print('fibc: ,', end-start)
+		print('fibc: ', end-start)
 
 	plt.plot(x, y_py, label='Python')
 	plt.plot(x, y_numba, label='Numba')
 	plt.plot(x, y_c, label='C++')
 	plt.savefig('plot_MA42.png')
+	'''
+
+	nn = 47
+	print('N: ', nn)
+	start = pc()
+	f = Person(nn)
+	f.fib()
+	end = pc()
+        print('fibc: ', end-start)
+
+	start = pc()
+	fib_numba(nn)
+	end = pc()
+	print('fib_numba: ', end-start)
 
 if __name__ == '__main__':
 	main()
