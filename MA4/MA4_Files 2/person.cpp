@@ -9,7 +9,7 @@ class Person{
 		void set(int);
 	private:
 		int n;
-		int _fib(int);
+		int fibn(int);
 	};
  
 Person::Person(int in){
@@ -25,14 +25,14 @@ void Person::set(int in){
 	}
 
 int Person::fib(){
-	return _fib(n);
+	return fibn(n);
 }
 
-int Person::_fib(int in){
+int Person::fibn(int in){
 	if (in <= 1){
-		return 0;
+		return (in);
 	} else {
-		return _fib(in-1) + _fib(in-2);
+		return (fibn(in-1) + fibn(in-2));
 	}
 }
 
