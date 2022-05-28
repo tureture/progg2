@@ -5,8 +5,9 @@ from numba import njit
 import matplotlib.pyplot as plt
 from time import perf_counter as pc
 
-def main():
 
+
+def main():
 	def fib_py(n):
 		if n <= 1:
 			return n
@@ -20,16 +21,25 @@ def main():
 		else:
 			return fib_numba(n - 1) + fib_numba(n - 2)
 
+	nn = 47
+	print('N: ', nn)
+	start = pc()
+	f = Person(nn)
+	f.fib()
+	end = pc()
+	print('fibc: ', end - start)
 
+	start = pc()
+	fib_numba(nn)
+	end = pc()
+	print('fib_numba: ', end - start)
 
-	x = range(30, 40)
+	x = range(30, 46)
 	y_py = []
 	y_numba = []
 	y_c = []
-	f = Person(5)
-	f.fib()
 
-	'''
+'''
 	for n in x:
 		print('N: ', n)
 		start = pc()
@@ -55,21 +65,8 @@ def main():
 	plt.plot(x, y_numba, label='Numba')
 	plt.plot(x, y_c, label='C++')
 	plt.savefig('plot_MA42.png')
-	'''
+'''
 
-	nn = 47
-	print('N: ', nn)
-	start = pc()
-	f = Person(nn)
-	f.fib()
-	end = pc()
-        print('fibc: ', end-start)
-
-	start = pc()
-	fib_numba(nn)
-	end = pc()
-	print('fib_numba: ', end-start)
 
 if __name__ == '__main__':
 	main()
-
