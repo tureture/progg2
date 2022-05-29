@@ -1,0 +1,39 @@
+
+1 + -(2 - 3) = x    # 2.0                 
+x/2 + x             # 3.0
+(1=x) + (2=y)*(3=z) # 7.0           
+
+#### A3: Absolute values
+
+|3 - 2*3|           # 3.0
+-(3 - 2*3)          # 3.0
+-|3 - y*z|          # -3.0
+||-3-4| - |-10=x||  # 3.0
+x                   # -10.0
+|+|                  # Syntax error 
+-|2-3-4 x           # Syntax error
+
+#### A4: The **-operator
+
+2**10               # 1024.0
+2**-1               # 0.5
+2**3**2             # 512.0
+(2**3)**2           # 64.0
+(2=x)**(3*x=y)      # 64.0
+(-1)**(-2)          # 1.0
+2****3              # Syntax error expected
+0**1                # 0.0
+0**0                # Evaluation error 
+0**-1               # Evaluation error 
+(-2)**0             # 1.0
+4**0.5              # 2.0
+(-4)**0.5           # Evaluation error
+
+#### B2 Avoid side effects in erroneous expressions
+
+1 = x                 # 1.0
+(99 = x y)            # Syntax error
+x                     # 1.0
+(9=x) + 3*(1 + 0**0)  # Evaluation erroe
+x                     # 1.0 
+

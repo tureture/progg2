@@ -1,0 +1,8 @@
+(1+2*(2=y) + 4) = x   # 9.0
+x + y                 # 11.0
+1 = x                 # 1.0
+(99 = x y)            # Syntax error
+x                     # 1.0
+(9=x) + 3*(1 + 0**0)  # Evaluation error
+x                     # 1.0 
+

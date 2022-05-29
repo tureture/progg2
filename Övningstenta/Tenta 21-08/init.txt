@@ -1,0 +1,13 @@
+(2+4=x) - x                     # 0.0
+2*(3*x + 2)/(16-x)              # 4.0
+
+#### Test of %-operator. 
+3%2                             # 1.0
+(2+5)%(10 - 3*2)                # 3.0
+(2+5)%(10 - 2*5)                # Division by zero exception
+
+### Test of clear
+1 = x
+x
+clear                           # NOT an undefined variable
+x                               # Undefined variable
