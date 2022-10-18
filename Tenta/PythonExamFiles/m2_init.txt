@@ -1,0 +1,38 @@
+1 - (2 - 4) = x      # 3.0                
+x*4/2 + x            # 9.0
+(1=x) + (2=y)*(3=z)  # 7.0    
+
+# Several assigments in a statement
+1, 2,Insertion order:  5 3 2 4 8 10 6 1 7 9 
+Symmetric order:  1 2 3 4 5 6 7 8 9 10 
+Level order    :  5 3 8 2 4 6 10 1 7 9  3, 4, 5        # Last evaluated value is the value
+ans
+1 = x, 2 = y, x + y  # Assignment performed successively
+10=x 11=y  3         # Syntax error - no comma
+x                    # x got a value
+(1, 2, 3)            # Not allowded
+
+# Functions with zero arguments
+random()
+random(1)
+time()
+time(1)
+time
+
+# Handling of strings and int
+1        # Without decimal point
+1.       # With decimal point
+2 + 1    # Should give an integer result
+2. + 1   # Should give a float result
+1/2      # Should, as in Python, give a float result
+'Hello!' # No apostrophes in the result
+'Kalle' = name1, 'Lisa' = name2
+'Hello ' + name1 + ' och ' + name2 +'!'
+'Grattis' + '!'*5
+'Todays date and time: ' + time()
+'sin(1) = ' + sin(1)
+'sin(1) = ' + str(sin(1))
+'abc' - 'c'
+4*'a'*4
+'a'* exp(3)*2
+'a'* int(exp(3))*2
